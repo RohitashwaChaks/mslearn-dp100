@@ -3,7 +3,7 @@ lab:
     title: 'Use Automated Machine Learning'
 ---
 
-# Use Automated Machine Learning
+## Use Automated Machine Learning
 
 Azure Machine Learning includes an *automated machine learning* capability that leverages the scalability of cloud compute to automatically try multiple pre-processing techniques and model-training algorithms in parallel to find the best performing supervised machine learning model for your data.
 
@@ -11,11 +11,11 @@ In this exercise, you'll use the visual interface for automated machine learning
 
 > **Note**: You can also use automated machine learning through the Azure Machine Learning SDK.
 
-## Before you start
+### Before you start
 
 If you have not already done so, complete the *[Create an Azure Machine Learning Workspace](01-create-a-workspace.md)* exercise to create an Azure Machine Learning workspace and compute instance, and clone the notebooks required for this exercise.
 
-## Configure compute resources
+### Configure compute resources
 
 To use automated machine learning, you require compute on which to run the model training experiment.
 
@@ -32,38 +32,38 @@ To use automated machine learning, you require compute on which to run the model
     - **Idle seconds before scale down**: 120
     - **Enable SSH access**: Unselected
 
-## Create a dataset
+### Create a dataset
 
 Now that you have some compute resources that you can use to process data, you'll need a way to store and ingest the data to be processed.
 
-1. View the comma-separated data at https://aka.ms/diabetes-data in your web browser. Then save this as a local file named **diabetes.csv** (it doesn't matter where you save it).
+1. View the comma-separated data at <https://aka.ms/diabetes-data> in your web browser. Then save this as a local file named **diabetes.csv** (it doesn't matter where you save it).
 2. In Azure Machine Learning studio, view the **Datasets** page. Datasets represent specific data files or tables that you plan to work with in Azure ML.
 3. Create a new dataset from local files, using the following settings:
-    * **Basic Info**:
-        * **Name**: diabetes dataset
-        * **Dataset type**: Tabular
-        * **Description**: Diabetes data
-    * **Datastore and file selection**:
-        * **Select or create a datastore**: Currently selected datastore
-        * **Select files for your dataset**: Browse to the **diabetes.csv** file you downloaded.
-        * **Upload path**: *Leave the default selection*
-        * **Skip data validation**: Not selected
-    * **Settings and preview**:
-        * **File format**: Delimited
-        * **Delimiter**: Comma
-        * **Encoding**: UTF-8
-        * **Column headers**: Use headers from first file
-        * **Skip rows**: None
-    * **Schema**:
-        * Include all columns other than **Path**
-        * Review the automatically detected types
-    * **Confirm details**:
-        * Do not profile the dataset after creation
+    - **Basic Info**:
+        - **Name**: diabetes dataset
+        - **Dataset type**: Tabular
+        - **Description**: Diabetes data
+    - **Datastore and file selection**:
+        - **Select or create a datastore**: Currently selected datastore
+        - **Select files for your dataset**: Browse to the **diabetes.csv** file you downloaded.
+        - **Upload path**: *Leave the default selection*
+        - **Skip data validation**: Not selected
+    - **Settings and preview**:
+        - **File format**: Delimited
+        - **Delimiter**: Comma
+        - **Encoding**: UTF-8
+        - **Column headers**: Use headers from first file
+        - **Skip rows**: None
+    - **Schema**:
+        - Include all columns other than **Path**
+        - Review the automatically detected types
+    - **Confirm details**:
+        - Do not profile the dataset after creation
 4. After the dataset has been created, open it and view the **Explore** page to see a sample of the data. This data represents details from patients who have been tested for diabetes, and you will use it to train a model that predicts the likelihood of a patient testing positive for diabetes based on clinical measurements.
 
     > **Note**: You can optionally generate a *profile* of the dataset to see more statistical details.
 
-## Run an automated machine learning experiment
+### Run an automated machine learning experiment
 
 In Azure Machine Learning, operations that you run are called *experiments*. Follow the steps below to run an experiment that uses automated machine learning to train a classification model that predicts diabetes diagnoses.
 
@@ -91,7 +91,7 @@ In Azure Machine Learning, operations that you run are called *experiments*. Fol
 4. When the run status changes to *Running*, view the **Models** tab and observe as each possible combination of training algorithm and pre-processing steps is tried and the performance of the resulting model is evaluated. The page will automatically refresh periodically, but you can also select **&#8635; Refresh**. It may take ten minutes or so before models start to appear, as the cluster nodes need to be initialized and the data featurization process completed before training can begin. Now might be a good time for a coffee break!
 5. Wait for the experiment to finish.
 
-## Review the best model
+### Review the best model
 
 After the experiment has finished; you can review the best performing model that was generated (note that in this case, we used exit criteria to stop the experiment - so the "best" model found by the experiment may not be the best possible model, just the best one found within the time and metric constraints allowed for this exercise!).
 
@@ -103,7 +103,7 @@ After the experiment has finished; you can review the best performing model that
 4. Select the **Metrics** tab and review the performance metrics you can view for the model. These include a **confusion_matrix** visualization showing the confusion matrix for the validated model, and an **accuracy_table** visualization that includes the ROC chart.
 5. Select the **Explanations** tab, select an **Explanation ID**, and then view the **Aggregate Importance** page. This shows the extent to which each feature in the dataset influences the label prediction.
 
-## Deploy a predictive service
+### Deploy a predictive service
 
 After you've used automated machine learning to train some models, you can deploy the best performing model as a service for client applications to use.
 
@@ -121,7 +121,7 @@ After you've used automated machine learning to train some models, you can deplo
     - the Primary Key for your service
 5. Note that you can use the &#10697; link next to these values to copy them to the clipboard.
 
-## Test the deployed service
+### Test the deployed service
 
 Now that you've deployed a service, you can test it using some simple code.
 
@@ -131,7 +131,7 @@ Now that you've deployed a service, you can test it using some simple code.
 4. In the notebook, replace the **ENDPOINT** and **PRIMARY_KEY** placeholders with the values for your service, which you can copy from the **Consume** tab on the page for your endpoint.
 5. Run the code cell and view the output returned by your web service.
 
-## Clean-up
+### Clean-up
 
 The web service you created is hosted in an *Azure Container Instance*. If you don't intend to experiment with it further, you should delete the endpoint to avoid accruing unnecessary Azure usage. You should also stop the compute instance until you need it again.
 

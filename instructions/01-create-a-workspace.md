@@ -3,11 +3,11 @@ lab:
     title: 'Create an Azure Machine Learning workspace'
 ---
 
-# Create and Explore an Azure Machine Learning Workspace
+## Create and Explore an Azure Machine Learning Workspace
 
 In this exercise, you will create and explore an Azure Machine Learning workspace.
 
-## Create an Azure Machine Learning workspace
+### Create an Azure Machine Learning workspace
 
 As its name suggests, a workspace is a centralized place to manage all of the Azure ML assets you need to work on a machine learning project.
 
@@ -26,7 +26,7 @@ As its name suggests, a workspace is a centralized place to manage all of the Az
 
 2. When the workspace and its associated resources have been created, view the workspace in the portal.
 
-## Explore Azure Machine Learning studio
+### Explore Azure Machine Learning studio
 
 You can manage some workspace assets in the Azure portal, but for data scientists, this tool contains lots of irrelevant information and links that relate to managing general Azure resources. *Azure Machine Learning studio* provides a dedicated web portal for working with your workspace.
 
@@ -37,7 +37,7 @@ You can manage some workspace assets in the Azure portal, but for data scientist
 2. View the Azure Machine Learning studio interface for your workspace - you can manage all of the assets in your workspace from here.
 3. In Azure Machine Learning studio, toggle the &#9776; icon at the top left to show and hide the various pages in the interface. You can use these pages to manage the resources in your workspace.
 
-## Create a compute instance
+### Create a compute instance
 
 One of the benefits of Azure Machine Learning is the ability to create cloud-based compute on which you can run experiments and training scripts at scale.
 
@@ -60,7 +60,7 @@ One of the benefits of Azure Machine Learning is the ability to create cloud-bas
         - **Assign to another user**: Unselected *(you can use this to assign a compute instance to a data scientist)*
 3. Wait for the compute instance to start and its status to change to **Running**.
 
-## Clone and run a notebook
+### Clone and run a notebook
 
 A lot of data science and machine learning experimentation is performed by running code in *notebooks*. Your compute instance includes fully featured Python notebook environments (*Jupyter* and *JuypyterLab*) that you can use for extensive work; but for basic notebook editing, you can use the built-in **Notebooks** page in Azure Machine learning studio.
 
@@ -78,7 +78,7 @@ A lot of data science and machine learning experimentation is performed by runni
 
 > **Tip**: To run a code cell, select the cell you want to run and then use the **&#9655;** button to run it.
 
-## Stop your compute instance
+### Stop your compute instance
 
 If you've finished exploring Azure Machine Learning for now, you should shut down your compute instance to avoid incurring unnecessary charges in your Azure subscription.
 
